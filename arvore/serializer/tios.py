@@ -4,4 +4,4 @@ from arvore.models import Tios
 class TiosSerializer(ModelSerializer):
     class Meta:
         model = Tios
-        field = "__all__"
+        fields = "__all__"

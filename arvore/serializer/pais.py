@@ -4,4 +4,4 @@ from arvore.models import Pais
 class PaisSerializer(ModelSerializer):
     class Meta:
         model = Pais
-        field = "__all__"
+        fields = "__all__"

@@ -4,4 +4,4 @@ from arvore.models import Irmaos
 class IrmaosSerializer(ModelSerializer):
     class Meta:
         model = Irmaos
-        field = "__all__"
+        fields = "__all__"

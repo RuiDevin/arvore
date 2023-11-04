@@ -1,3 +1,3 @@
 from .pais import Pais
 from .tios import Tios
-from .irmaos import Irmao
+from .irmaos import Irmaos
