@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from django.urls import include, path
 
 from rest_framework.routers import DefaultRouter
-from arvore.view import PaisViewSet, TiosViewSet, IrmaosViewSet
+from arvore.view import PaisViewSet, TiosViewSet, IrmaosViewSet,PrimosViewSet
 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
@@ -15,6 +15,7 @@ router = DefaultRouter()
 router.register(r"pai", PaisViewSet)
 router.register(r"tio", TiosViewSet)
 router.register(r"irmao", IrmaosViewSet)
+router.register(r"primos", PrimosViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
