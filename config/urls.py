@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from django.urls import include, path
 
 from rest_framework.routers import DefaultRouter
-from arvore.view import PaisViewSet, TiosViewSet
+from arvore.view import PaisViewSet, TiosViewSet, IrmaosViewSet
 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
@@ -12,8 +12,9 @@ from uploader.router import router as uploader_router
 from usuario.router import router as usuario_router
 
 router = DefaultRouter()
-router.register(r"pais", PaisViewSet)
-router.register(r"tios", TiosViewSet)
+router.register(r"pai", PaisViewSet)
+router.register(r"tio", TiosViewSet)
+router.register(r"irmao", IrmaosViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
