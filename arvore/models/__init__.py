@@ -5,3 +5,4 @@ from .endereco import Endereco
 from .primos import Primos
 from .trabalho import Trabalho
 from .escolaridade import Escolaridade
+from .profissão import Profissao
