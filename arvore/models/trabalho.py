@@ -3,43 +3,47 @@ from django.db import models
 from .endereco import Endereco
 from .profissão import Profissao
 
-SALARIO_MINIMO_CHOICES = (
-    ('salario_1994', '70_Reais'),
-    ('salario_1995', '100_Reais'),
-    ('salario_1996', '112_Reais'),
-    ('salario_1997', '120_Reais'),
-    ('salario_1998', '130_Reais'),
-    ('salario_1999', '136_Reais'),
-    ('salario_2000', '151_reais'),
-    ('salario_2001', '180_reais'),
-    ('salario_2002', '200_reais'),
-    ('salario_2003', '240_reais'),
-    ('salario_2004', '260_reais'),
-    ('salario_2005', '300_reais'),
-    ('salario_2006', '350_reais'),
-    ('salario_2007', '380_reais'),
-    ('salario_2008', '415_reais'),
-    ('salario_2009', '465_reais'),
-    ('salario_2010', '510_reais'),
-    ('salario_2011', '545_reais'),
-    ('salario_2012', '622_reais'),
-    ('salario_2013', '678_reais'),
-    ('salario_2014', '724_reais'),
-    ('salario_2015', '788_reais'),
-    ('salario_2016', '880_reais'),
-    ('salario_2017', '937_reais'),
-    ('salario_2018', '954_reais'),
-    ('salario_2019', '998_reais'),
-    ('salario_2020', '1045_reais'),
-    ('salario_2021', '1100_reais'),
-    ('salario_2022', '1212_reais'),
-    ('salario_2023', '1320_reais'),
+ESCOLHAS_SALARIO_MINIMO = (
+    ('Salário Mínimo 1994', '70 Reais (1994)'),
+    ('Salário Mínimo 1995', '100 Reais (1995)'),
+    ('Salário Mínimo 1996', '112 Reais (1996)'),
+    ('Salário Mínimo 1997', '120 Reais (1997)'),
+    ('Salário Mínimo 1998', '130 Reais (1998)'),
+    ('Salário Mínimo 1999', '136 Reais (1999)'),
+    ('Salário Mínimo 2000', '151 Reais (2000)'),
+    ('Salário Mínimo 2001', '180 Reais (2001)'),
+    ('Salário Mínimo 2002', '200 Reais (2002)'),
+    ('Salário Mínimo 2003', '240 Reais (2003)'),
+    ('Salário Mínimo 2004', '260 Reais (2004)'),
+    ('Salário Mínimo 2005', '300 Reais (2005)'),
+    ('Salário Mínimo 2006', '350 Reais (2006)'),
+    ('Salário Mínimo 2007', '380 Reais (2007)'),
+    ('Salário Mínimo 2008', '415 Reais (2008)'),
+    ('Salário Mínimo 2009', '465 Reais (2009)'),
+    ('Salário Mínimo 2010', '510 Reais (2010)'),
+    ('Salário Mínimo 2011', '545 Reais (2011)'),
+    ('Salário Mínimo 2012', '622 Reais (2012)'),
+    ('Salário Mínimo 2013', '678 Reais (2013)'),
+    ('Salário Mínimo 2014', '724 Reais (2014)'),
+    ('Salário Mínimo 2015', '788 Reais (2015)'),
+    ('Salário Mínimo 2016', '880 Reais (2016)'),
+    ('Salário Mínimo 2017', '937 Reais (2017)'),
+    ('Salário Mínimo 2018', '954 Reais (2018)'),
+    ('Salário Mínimo 2019', '998 Reais (2019)'),
+    ('Salário Mínimo 2020', '1045 Reais (2020)'),
+    ('Salário Mínimo 2021', '1100 Reais (2021)'),
+    ('Salário Mínimo 2022', '1212 Reais (2022)'),
+    ('Salário Mínimo 2023', '1320 Reais (2023)'),
 )
 
-
 class Trabalho(models.Model):
-    endereço = models.ManyToManyField(Endereco,related_name='endereco')
-    profissao = models.ManyToManyField(Profissao, related_name='sua_profissao' )
-    salario = models.CharField(max_length=25, choices=SALARIO_MINIMO_CHOICES, null=True)
+    endereco_atual = models.ManyToManyField(Endereco, related_name='endereco_atual')
+    profissao_atual = models.ManyToManyField(Profissao, related_name='sua_profissao_atual')
+    salario_atual = models.CharField(max_length=25, null=False, blank=True, choices=())  # Adicione as opções aqui, se necessário
+    recebo_salario_minimo = models.CharField(max_length=25, choices=ESCOLHAS_SALARIO_MINIMO, null=False, blank=True)
 
-    
+class AntigoTrabalho(models.Model):
+    endereco = models.ManyToManyField(Endereco, related_name='endereco')
+    profissao = models.ManyToManyField(Profissao, related_name='sua_profissao')
+    salario = models.CharField(max_length=25, null=False, blank=True, choices=())  # Adicione as opções aqui, se necessário
+    recebia_salario_minimo = models.CharField(max_length=25, choices=ESCOLHAS_SALARIO_MINIMO, null=False, blank=True)
