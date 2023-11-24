@@ -6,3 +6,4 @@ from .endereco import EnderecoSerializer
 from .trabalho import TrabalhoSerializer
 from .escolaridade import EscolaridadeSerializer
 from .profissão import ProfissaoSerializer
+from .mes import MesSerializer

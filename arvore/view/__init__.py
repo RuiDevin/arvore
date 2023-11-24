@@ -6,3 +6,4 @@ from .primos import PrimosViewSet
 from .trabalho import TrabalhoViewSet
 from .escolaridade import EscolaridadeViewSet
 from .profissão import ProfissaoViewSet
+from .mes import MesViewSet

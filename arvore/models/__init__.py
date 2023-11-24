@@ -6,3 +6,4 @@ from .primos import Primos
 from .trabalho import Trabalho
 from .escolaridade import Escolaridade
 from .profissão import Profissao
+from .mes import Mes

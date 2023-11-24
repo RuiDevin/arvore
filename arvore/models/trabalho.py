@@ -41,9 +41,12 @@ class Trabalho(models.Model):
     profissao_atual = models.ManyToManyField(Profissao, related_name='sua_profissao_atual')
     salario_atual = models.CharField(max_length=25, null=False, blank=True, choices=())  # Adicione as opções aqui, se necessário
     recebo_salario_minimo = models.CharField(max_length=25, choices=ESCOLHAS_SALARIO_MINIMO, null=False, blank=True)
+    data_de_admissão = models.DateField(null=True)
 
 class AntigoTrabalho(models.Model):
     endereco = models.ManyToManyField(Endereco, related_name='endereco')
     profissao = models.ManyToManyField(Profissao, related_name='sua_profissao')
     salario = models.CharField(max_length=25, null=False, blank=True, choices=())  # Adicione as opções aqui, se necessário
     recebia_salario_minimo = models.CharField(max_length=25, choices=ESCOLHAS_SALARIO_MINIMO, null=False, blank=True)
+    data_de_admissão = models.DateField(null=True)
+    data_de_demissão = models.DateField(null=True)
